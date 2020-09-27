@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<title>Ana Halac</title>
+	<meta property="og:title" content="Ana Halac" />
+	<meta property="og:locale" content="en_US" />
+
+	<meta name="@type" content="WebSite">
+	<meta name="url" content="https://anahalac.github.io">
+	<meta name="headline" content="Ana Halac">
+
+	<meta name="twitter:description" content="">
+	<meta property="og:description" content="">
+
+	<meta name="description" content="" />
+
+	
+	<meta property="og:description" content="" />
+
+	
+	<link rel="fluid-icon" href="https://raw.githubusercontent.com/anahalac/anahalac.github.io/master/img/icon.png" type="image/png" title="anahalac">
+	<link rel="icon" href="https://raw.githubusercontent.com/anahalac/anahalac.github.io/master/img/icon.ico" type="image/ico" title="anahalac">
+	
+	<link rel="canonical" href="https://anahalac.github.io" />
+	<meta property="og:url" content="https://anahalac.github.io" />
+	<meta property="og:site_name" content="[anahalac~ ]" />
+	
+	<meta property="og:image"    content="https://raw.githubusercontent.com/anahalac/anahalac.github.io/master/img/icon.png">
+	<meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+
+	
+	<meta name="keywords"        content="anahalac, crochet, coaching">
+	<meta name="robots"          content="index,follow">
+	
+	<!-- <link rel="stylesheet" type="text/css"         href="css/style.css"> -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151917938-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-151917938-1');
+	</script> -->
+
+	<script>
+
+var allLinks=[], s="https://spreadsheets.google.com/feeds/list/1fwRaKb0E63c1m9ehNlls379HUmYAl-gZVy3RecDSJNM/1/public/values?alt=json"
+
+function loadJSON(x,callback)
+{
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', x, true);
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState == 4 && xobj.status == "200") {
+      callback(xobj.responseText);
+    }
+  };
+  xobj.send(null);  
+}
+
+
+function load() 
+{
+ await loadJSON(s, async function(response)
+  {
+    var e, i, f = JSON.parse(response), entry = f.feed.entry;
+    allLinks={};
+    for (i in entry) {
+      e = entry[i];
+      allLinks[i]={};
+      allLinks[i]["title"] = e.gsx$title.$t;
+      allLinks[i]["url"] = e.gsx$url.$t;
+    }
+  });
+}
+
+if (allLinks.length==0) {
+	console.log('loading...');
+	load();
+} else {
+	console.log('loaded!');
+}
+
+
+
+	</script>
+
+
+
+
+
+</head>
+<body>
+	<header>
+	<h1>Ana Halac</h1>
+	</header>
+	<main></main>
+	<footer></footer> 
+</body>
+</html>
