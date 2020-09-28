@@ -66,7 +66,7 @@ function loadJSON(x,callback)
 }
 
 
-function load() 
+async function load() 
 {
  await loadJSON(s, async function(response)
   {
@@ -78,6 +78,7 @@ function load()
       allLinks[i]["title"] = e.gsx$title.$t;
       allLinks[i]["url"] = e.gsx$url.$t;
     }
+    display();
   });
 }
 
@@ -88,18 +89,66 @@ if (allLinks.length==0) {
 	console.log('loaded!');
 }
 
+function display() {
+	var main=document.getElementsByTagName('main')[0];
+	// console.log(allLinks);
+	for (let i in allLinks) {
+
+		let anchor = document.createElement('a');
+		anchor.setAttribute('href',allLinks[i]['url']);
+		anchor.setAttribute('class','button');
+		anchor.innerHTML=allLinks[i]['title'];
+		main.appendChild(anchor);
+	}
+}
+
 
 
 	</script>
 
+<style>
+	body {
+		font-family: 'Karla', 'Karla', sans-serif;
+        letter-spacing:  0px;
+        font-weight: 700;
+        font-size: 16px;
+		text-align:center;
 
+		background:url('pattern.jpg') fixed top right;
+	}
+	header {
+		border-radius:20px;
+		height:100px;
+		margin:4%;
+
+
+		background:url('https://instagram.fcor11-1.fna.fbcdn.net/v/t51.2885-15/e35/118855514_3002612793195401_3589073956796262773_n.jpg?_nc_ht=instagram.fcor11-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=WAqY8k1_GMwAX-Io83t&_nc_tp=18&oh=f649d4c4921989205dc9d0f1729dada2&oe=5F9A3F32') bottom right;
+	}
+	a {
+		text-decoration:none;
+	}
+	.button {
+		font-size:1em;
+		display:block;
+		padding:4%;
+		margin:4%;
+		color:#330e23;
+		background:#ca5077f0;
+		border-radius:20px;
+	}
+	.button:hover {
+		color:#e7e3fa;
+		cursor:pointer;
+		border:1px solid #330e23;
+	}
+</style>
 
 
 
 </head>
 <body>
 	<header>
-	<h1>Ana Halac</h1>
+	<!-- <h1>Ana Halac</h1> -->
 	</header>
 	<main></main>
 	<footer></footer> 
